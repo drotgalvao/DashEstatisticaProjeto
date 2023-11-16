@@ -697,50 +697,42 @@ def update_graph(n_clicks, iso_value):
     [State("iso-dropdown", "value")],
 )
 def update_regression_graph(n_clicks, iso_value):
-    # Verifica se o botão foi clicado
     if not n_clicks:
-        # Se não foi clicado, retorna sem fazer nada
         return dash.no_update, dash.no_update
 
     if iso_value is None or iso_value == "":
         return dash.no_update, "Dados não disponíveis para o país selecionado."
 
-    # Filtrar o DataFrame com base no valor do menu suspenso
     df_filter = df[df["iso3"] == iso_value]
 
     if df_filter.empty:
         return dash.no_update, "Dados não disponíveis para o país selecionado."
 
-    # Redefinir colunas de ranking
-    for year in range(1996, 2022):
-        hdi_rank_col = f"hdi_{year}_rank"
-        ef_rank_col = f"ef_{year}_rank"
-        df[hdi_rank_col] = df[f"hdi_{year}"].rank(ascending=False)
-        df[ef_rank_col] = df[f"ef_{year}"].rank(ascending=False)
+    # Verificar se há dados ausentes
+    if df_filter[[f"ef_{year}_rank" for year in range(1996, 2022)]].isnull().any().any():
+        return dash.no_update, "Dados ausentes para realizar a regressão."
 
-    ef_ranks = df_filter[
-        [f"ef_{year}_rank" for year in range(1996, 2022)]
-    ].values.flatten()
-    hdi_ranks = df_filter[
-        [f"hdi_{year}_rank" for year in range(1996, 2022)]
-    ].values.flatten()
+    ef_ranks = df_filter[[f"ef_{year}_rank" for year in range(1996, 2022)]].values.flatten()
+    hdi_ranks = df_filter[[f"hdi_{year}_rank" for year in range(1996, 2022)]].values.flatten()
 
-    # Realizar a regressão linear para o EF Rank
+    # Verificar se há valores NaN nas variáveis
+    if np.isnan(ef_ranks).any() or np.isnan(hdi_ranks).any():
+        return dash.no_update, "Dados contêm valores nulos (NaN). Não é possível realizar a regressão."
+
+    # Continuar com o restante do código para realizar a regressão linear
     reg_ef = LinearRegression().fit(
         np.array([[year] for year in range(1996, 2022)]), ef_ranks
     )
 
-    # Realizar a regressão linear para o HDI Rank
     reg_hdi = LinearRegression().fit(
         np.array([[year] for year in range(1996, 2022)]), hdi_ranks
     )
 
-    # Predições dos rankings para os anos seguintes
-    years_pred = np.array([[year] for year in range(2022, 2030)])  # Anos futuros
+
+    years_pred = np.array([[year] for year in range(2022, 2030)])
     ef_rank_pred = reg_ef.predict(years_pred)
     hdi_rank_pred = reg_hdi.predict(years_pred)
 
-    # Cria o gráfico de regressão
     figure = {
         "data": [
             {
@@ -794,3 +786,4 @@ def update_regression_graph(n_clicks, iso_value):
 
 if __name__ == "__main__":
     app.run_server(debug=True, use_reloader=True)
+    # app.run_server(debug=True, use_reloader=True, host='0.0.0.0', port=8080) # para rodar externo
