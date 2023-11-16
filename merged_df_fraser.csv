@@ -1,0 +1,164 @@
+iso3,country,hdi_2020,Ranking HDI 2020,ISO_Code,Countries,Economic Freedom Summary Index,Ranking Economic Freedom
+NOR,Norway,0.959,1.0,NOR,Norway,7.58,32.0
+ISL,Iceland,0.957,2.0,ISL,Iceland,7.73,20.0
+CHE,Switzerland,0.956,3.0,CHE,Switzerland,8.37,3.0
+HKG,"Hong Kong, China (SAR)",0.949,4.0,HKG,"Hong Kong SAR, China",8.59,1.0
+DNK,Denmark,0.947,5.0,DNK,Denmark,8.09,5.0
+AUS,Australia,0.947,5.0,AUS,Australia,8.04,6.0
+DEU,Germany,0.944,7.0,DEU,Germany,7.65,25.0
+IRL,Ireland,0.943,8.0,IRL,Ireland,7.86,10.0
+SWE,Sweden,0.942,9.0,SWE,Sweden,7.56,33.0
+SGP,Singapore,0.939,10.0,SGP,Singapore,8.48,2.0
+NLD,Netherlands,0.939,10.0,NLD,Netherlands,7.75,17.0
+FIN,Finland,0.938,12.0,FIN,Finland,7.64,26.0
+NZL,New Zealand,0.936,13.0,NZL,New Zealand,8.27,4.0
+CAN,Canada,0.931,15.0,CAN,Canada,7.81,14.0
+BEL,Belgium,0.928,16.0,BEL,Belgium,7.37,46.0
+LUX,Luxembourg,0.924,17.0,LUX,Luxembourg,7.54,36.0
+GBR,United Kingdom,0.924,17.0,GBR,United Kingdom,7.71,22.0
+JPN,Japan,0.923,19.0,JPN,Japan,7.82,12.0
+KOR,Korea (Republic of),0.922,20.0,KOR,"Korea, Rep.",7.42,43.0
+USA,United States,0.92,21.0,USA,United States,7.97,7.0
+ISR,Israel,0.917,22.0,ISR,Israel,7.35,49.0
+AUT,Austria,0.913,23.0,AUT,Austria,7.56,33.0
+SVN,Slovenia,0.913,23.0,SVN,Slovenia,7.0,75.0
+ARE,United Arab Emirates,0.912,25.0,ARE,UnitedArabEmirates,7.35,49.0
+MLT,Malta,0.911,26.0,MLT,Malta,7.72,21.0
+ESP,Spain,0.899,27.0,ESP,Spain,7.63,28.0
+FRA,France,0.898,28.0,FRA,France,7.33,54.0
+CYP,Cyprus,0.894,29.0,CYP,Cyprus,7.49,38.0
+EST,Estonia,0.892,30.0,EST,Estonia,7.95,8.0
+CZE,Czechia,0.892,30.0,CZE,Czech Republic,7.75,17.0
+ITA,Italy,0.889,32.0,ITA,Italy,7.4,44.0
+GRC,Greece,0.886,33.0,GRC,Greece,6.81,85.0
+LTU,Lithuania,0.879,34.0,LTU,Lithuania,7.82,12.0
+BHR,Bahrain,0.877,35.0,BHR,Bahrain,7.47,39.0
+POL,Poland,0.876,36.0,POL,Poland,6.93,80.0
+LVA,Latvia,0.871,37.0,LVA,Latvia,7.77,16.0
+SAU,Saudi Arabia,0.87,38.0,SAU,Saudi Arabia,6.78,86.0
+PRT,Portugal,0.863,39.0,PRT,Portugal,7.43,42.0
+SVK,Slovakia,0.857,40.0,SVK,Slovak Republic,7.33,54.0
+HRV,Croatia,0.855,41.0,HRV,Croatia,7.16,61.0
+QAT,Qatar,0.854,42.0,QAT,Qatar,6.99,76.0
+CHL,Chile,0.852,43.0,CHL,Chile,7.56,33.0
+HUN,Hungary,0.849,44.0,HUN,Hungary,7.24,57.0
+ARG,Argentina,0.84,47.0,ARG,Argentina,4.87,161.0
+TUR,Turkey,0.833,48.0,TUR,Turkey,6.48,112.0
+BRN,Brunei Darussalam,0.83,49.0,BRN,BruneiDarussalam,7.21,59.0
+RUS,Russian Federation,0.83,49.0,RUS,Russian Federation,6.62,94.0
+OMN,Oman,0.827,51.0,OMN,Oman,6.65,93.0
+MNE,Montenegro,0.826,52.0,MNE,Montenegro,7.46,40.0
+ROU,Romania,0.824,53.0,ROU,Romania,7.74,19.0
+KWT,Kuwait,0.822,54.0,KWT,Kuwait,6.73,88.0
+URY,Uruguay,0.821,55.0,URY,Uruguay,7.06,68.0
+TTO,Trinidad and Tobago,0.818,56.0,TTO,Trinidad and Tobago,7.01,72.0
+CRI,Costa Rica,0.816,57.0,CRI,CostaRica,7.62,29.0
+BHS,Bahamas,0.815,58.0,BHS,"Bahamas, The",7.02,71.0
+KAZ,Kazakhstan,0.814,59.0,KAZ,Kazakhstan,7.35,49.0
+BLR,Belarus,0.807,60.0,BLR,Belarus,6.83,83.0
+MYS,Malaysia,0.806,61.0,MYS,Malaysia,7.35,49.0
+SRB,Serbia,0.804,62.0,SRB,Serbia,6.82,84.0
+MUS,Mauritius,0.804,62.0,MUS,Mauritius,7.88,9.0
+BGR,Bulgaria,0.802,64.0,BGR,Bulgaria,7.69,23.0
+GEO,Georgia,0.802,64.0,GEO,Georgia,7.78,15.0
+THA,Thailand,0.802,64.0,THA,Thailand,6.78,86.0
+PAN,Panama,0.801,67.0,PAN,Panama,7.45,41.0
+ALB,Albania,0.794,68.0,ALB,Albania,7.64,26.0
+SYC,Seychelles,0.793,69.0,SYC,Seychelles,7.01,72.0
+BRB,Barbados,0.788,71.0,BRB,Barbados,7.01,72.0
+BIH,Bosnia and Herzegovina,0.781,73.0,BIH,BosniaandHerzegovina,6.72,89.0
+LKA,Sri Lanka,0.78,75.0,LKA,Sri Lanka,6.72,89.0
+IRN,Iran (Islamic Republic of),0.777,77.0,IRN,"Iran, Islamic Rep.",4.96,159.0
+UKR,Ukraine,0.775,78.0,UKR,Ukraine,6.11,126.0
+MKD,North Macedonia,0.774,79.0,MKD,North Macedonia,7.16,61.0
+MDA,Moldova (Republic of),0.766,81.0,MDA,Moldova,7.05,69.0
+CHN,China,0.764,82.0,CHN,China,6.27,116.0
+DOM,Dominican Republic,0.764,82.0,DOM,Dominican Republic,7.36,48.0
+PER,Peru,0.762,85.0,PER,Peru,7.5,37.0
+BRA,Brazil,0.758,86.0,BRA,Brazil,6.33,114.0
+ARM,Armenia,0.757,87.0,ARM,Armenia,7.84,11.0
+COL,Colombia,0.756,88.0,COL,Colombia,6.55,99.0
+MEX,Mexico,0.756,88.0,MEX,Mexico,7.12,64.0
+MNG,Mongolia,0.745,90.0,MNG,Mongolia,7.3,56.0
+SUR,Suriname,0.743,92.0,SUR,Suriname,5.81,143.0
+TUN,Tunisia,0.737,94.0,TUN,Tunisia,6.09,128.0
+FJI,Fiji,0.737,94.0,FJI,Fiji,6.53,104.0
+DZA,Algeria,0.736,96.0,DZA,Algeria,5.12,157.0
+EGY,Egypt,0.734,97.0,EGY,"Egypt, Arab Rep.",5.61,150.0
+ECU,Ecuador,0.731,99.0,ECU,Ecuador,6.51,106.0
+PRY,Paraguay,0.73,100.0,PRY,Paraguay,6.96,78.0
+AZE,Azerbaijan,0.73,100.0,AZE,Azerbaijan,6.21,119.0
+ZAF,South Africa,0.727,102.0,ZAF,South Africa,6.55,99.0
+LBN,Lebanon,0.726,103.0,LBN,Lebanon,5.45,154.0
+JOR,Jordan,0.723,104.0,JOR,Jordan,7.37,46.0
+GUY,Guyana,0.721,107.0,GUY,Guyana,5.82,142.0
+BWA,Botswana,0.713,110.0,BWA,Botswana,7.35,49.0
+JAM,Jamaica,0.713,110.0,JAM,Jamaica,7.38,45.0
+GAB,Gabon,0.71,113.0,GAB,Gabon,5.72,146.0
+PHL,Philippines,0.71,113.0,PHL,Philippines,7.09,66.0
+VNM,Viet Nam,0.71,113.0,VNM,Vietnam,6.42,113.0
+IDN,Indonesia,0.709,116.0,IDN,Indonesia,7.09,66.0
+LBY,Libya,0.703,117.0,LBY,Libya,4.95,160.0
+VEN,Venezuela (Bolivarian Republic of),0.695,118.0,VEN,"Venezuela, RB",3.32,165.0
+BOL,Bolivia (Plurinational State of),0.694,119.0,BOL,Bolivia,6.15,123.0
+BLZ,Belize,0.69,120.0,BLZ,Belize,6.23,118.0
+KGZ,Kyrgyzstan,0.689,121.0,KGZ,Kyrgyz Republic,6.97,77.0
+MAR,Morocco,0.679,122.0,MAR,Morocco,6.55,99.0
+IRQ,Iraq,0.679,122.0,IRQ,Iraq,5.51,153.0
+SLV,El Salvador,0.672,124.0,SLV,El Salvador,7.12,64.0
+BTN,Bhutan,0.668,125.0,BTN,Bhutan,6.49,110.0
+TJK,Tajikistan,0.664,126.0,TJK,Tajikistan,6.6,95.0
+CPV,Cabo Verde,0.662,127.0,CPV,CaboVerde,7.6,30.0
+BGD,Bangladesh,0.655,128.0,BGD,Bangladesh,5.89,139.0
+NIC,Nicaragua,0.654,129.0,NIC,Nicaragua,6.84,82.0
+IND,India,0.642,130.0,IND,India,6.72,89.0
+GTM,Guatemala,0.635,133.0,GTM,Guatemala,7.59,31.0
+NAM,Namibia,0.633,134.0,NAM,Namibia,6.57,96.0
+GHA,Ghana,0.632,135.0,GHA,Ghana,6.49,110.0
+HND,Honduras,0.621,138.0,HND,Honduras,7.04,70.0
+TLS,Timor-Leste,0.614,140.0,TLS,Timor-Leste,5.94,136.0
+SWZ,Eswatini (Kingdom of),0.61,141.0,SWZ,Eswatini,5.76,144.0
+LAO,Lao People's Democratic Republic,0.608,142.0,LAO,Lao PDR,6.5,109.0
+NPL,Nepal,0.604,144.0,NPL,Nepal,6.54,103.0
+ZWE,Zimbabwe,0.6,145.0,ZWE,Zimbabwe,4.48,163.0
+MMR,Myanmar,0.6,145.0,MMR,Myanmar,5.93,137.0
+KHM,Cambodia,0.596,148.0,KHM,Cambodia,7.13,63.0
+AGO,Angola,0.59,149.0,AGO,Angola,5.91,138.0
+KEN,Kenya,0.578,150.0,KEN,Kenya,6.96,78.0
+CMR,Cameroon,0.578,150.0,CMR,Cameroon,5.76,144.0
+SYR,Syrian Arab Republic,0.577,152.0,SYR,Syrian Arab Republic,4.63,162.0
+COG,Congo,0.574,153.0,COG,"Congo, Rep.",5.08,158.0
+ZMB,Zambia,0.57,154.0,ZMB,Zambia,6.56,98.0
+COM,Comoros,0.562,156.0,COM,Comoros,6.31,115.0
+PNG,Papua New Guinea,0.56,157.0,PNG,Papua New Guinea,6.17,122.0
+MRT,Mauritania,0.556,158.0,MRT,Mauritania,6.13,125.0
+CIV,Côte d'Ivoire,0.551,159.0,CIV,Cote d'Ivoire,6.01,132.0
+TZA,Tanzania (United Republic of),0.548,160.0,TZA,Tanzania,6.55,99.0
+PAK,Pakistan,0.543,161.0,PAK,Pakistan,6.03,130.0
+HTI,Haiti,0.54,162.0,HTI,Haiti,6.57,96.0
+NGA,Nigeria,0.535,163.0,NGA,Nigeria,6.7,92.0
+TGO,Togo,0.535,163.0,TGO,Togo,6.19,121.0
+RWA,Rwanda,0.532,165.0,RWA,Rwanda,6.9,81.0
+BEN,Benin,0.524,166.0,BEN,Benin,6.51,106.0
+UGA,Uganda,0.524,166.0,UGA,Uganda,7.18,60.0
+LSO,Lesotho,0.521,168.0,LSO,Lesotho,6.52,105.0
+MWI,Malawi,0.516,169.0,MWI,Malawi,5.98,133.0
+SEN,Senegal,0.513,170.0,SEN,Senegal,6.05,129.0
+DJI,Djibouti,0.51,171.0,DJI,Djibouti,6.21,119.0
+SDN,Sudan,0.51,171.0,SDN,Sudan,4.21,164.0
+MDG,Madagascar,0.501,173.0,MDG,Madagascar,6.1,127.0
+GMB,Gambia,0.501,173.0,GMB,"Gambia, The",7.23,58.0
+ETH,Ethiopia,0.498,175.0,ETH,Ethiopia,5.58,151.0
+GNB,Guinea-Bissau,0.483,177.0,GNB,Guinea-Bissau,5.64,149.0
+LBR,Liberia,0.48,179.0,LBR,Liberia,6.51,106.0
+COD,Congo (Democratic Republic of the),0.479,180.0,COD,"Congo, Dem. Rep.",5.36,156.0
+SLE,Sierra Leone,0.475,181.0,SLE,Sierra Leone,5.98,133.0
+GIN,Guinea,0.466,182.0,GIN,Guinea,5.84,141.0
+YEM,Yemen,0.46,183.0,YEM,"Yemen, Rep.",5.67,147.0
+MOZ,Mozambique,0.453,184.0,MOZ,Mozambique,6.27,116.0
+BFA,Burkina Faso,0.449,185.0,BFA,Burkina Faso,6.15,123.0
+MLI,Mali,0.427,186.0,MLI,Mali,5.85,140.0
+BDI,Burundi,0.426,187.0,BDI,Burundi,5.67,147.0
+CAF,Central African Republic,0.407,188.0,CAF,CentralAfricanRepublic,5.4,155.0
+NER,Niger,0.401,189.0,NER,Niger,5.97,135.0
+TCD,Chad,0.397,190.0,TCD,Chad,5.55,152.0
