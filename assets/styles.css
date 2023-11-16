@@ -56,7 +56,6 @@ body {
 }
 
 .table-show {
-
 }
 
 .titulo-geral {
@@ -76,7 +75,7 @@ body {
 }
 
 .titulo-descricao-container strong {
-  color: #007BFF; /* Cor para destaque, ajuste conforme necessário */
+  color: #007bff; /* Cor para destaque, ajuste conforme necessário */
   font-weight: bold;
 }
 
@@ -95,19 +94,81 @@ body {
 .corr-container {
   display: block;
   margin-bottom: 50px;
-
 }
 
-.title-graphs, .corr-container p, .corr-container pre {
+.title-graphs,
+.corr-container p,
+.corr-container pre {
   text-align: center;
 }
 
 .data-table {
   overflow-x: auto;
-  width: 100%; 
-  margin-bottom: 20px; 
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .regression-container {
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .graph-show {
+    max-width: 100%;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .title-graphs {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .corr-container {
+    margin-bottom: 50px;
+  }
+
+  .regression-container {
+    margin-bottom: 50px;
+  }
+
+  .data-table {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .table-show {
+    width: 100%;
+  }
+  html {
+    font-size: 8px !important;
+  }
+
+  .titulo-descricao-container p {
+    font-size: 8px;
+    max-width: 80%;
+  }
+  .js-plotly-plot {
+    max-width: 100% !important;
+    margin: auto !important;
+    width: 90% !important;
+    height: 350px !important; 
+  }
+
+  .js-plotly-plot text {
+    font-size: 5px !important; 
+  }
+
+  #update-button {
+    width: 80px;
+  }
+
+  #iso-dropdown {
+    width: 80px;
+  }
+
 }

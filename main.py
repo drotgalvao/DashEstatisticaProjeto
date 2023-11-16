@@ -302,7 +302,7 @@ app.layout = html.Div(
                     style_cell={"textAlign": "center"},
                 ),
             ],
-            className="corr-container",
+            className="corr-container mobile",
         ),
         # Div 2 Heritage Dataframe vs HDI 2020
         html.Div(
@@ -382,7 +382,7 @@ app.layout = html.Div(
                     style_cell={"textAlign": "center"},
                 ),
             ],
-            className="corr-container",
+            className="corr-container mobile",
         ),
         # Div 3 Fraser Dataframe vs Heritage Dataframe
         html.Div(
@@ -469,7 +469,7 @@ app.layout = html.Div(
                     style_cell={"textAlign": "center"},
                 ),
             ],
-            className="corr-container",
+            className="corr-container mobile",
         ),
         # Div para o Box Plot
         html.Div(
