@@ -162,11 +162,19 @@ app = dash.Dash(__name__)
 
 # Título Geral e Descrição
 titulo_geral = "Análise de Correlação: Desenvolvimento Humano e Liberdade Econômica"
-descricao = """
-    Este projeto de estatística visa analisar a correlação entre o Índice de Desenvolvimento Humano (HDI) 
-    e o Índice de Liberdade Econômica (EFI). Os dados utilizados foram obtidos do Fraser Institute, 
-    Heritage Foundation e United Nations Development Programme (UNDP).
-"""
+descricao = [
+    "Este projeto de estatística visa analisar a correlação entre o ",
+    html.Strong("Índice de Desenvolvimento Humano (HDI)"),
+    " e o ",
+    html.Strong("Índice de Liberdade Econômica (EFI)"),
+    ". Os dados utilizados foram obtidos do ",
+    html.Strong("Fraser Institute"),
+    ", ",
+    html.Strong("Heritage Foundation"),
+    " e ",
+    html.Strong("United Nations Development Programme (UNDP)"),
+    "."
+]
 
 # layout
 app.layout = html.Div(
@@ -180,31 +188,203 @@ app.layout = html.Div(
             ],
             className="titulo-descricao-container",
         ),
-        # Div Fraser Dataframe vs HDI 2020
+        # # Div Fraser Dataframe vs HDI 2020
+        # html.Div(
+        #     children=[
+        #         html.H2("Fraser Dataframe vs HDI 2020:", className="title-graphs"),
+        #         html.Hr(className="linha-separadora"),
+        #         html.P("Correlation between Rankings:"),
+        #         html.Pre(children=str(correlation_rankings_fraser)),
+        #         html.P("Correlation between HDI 2020 and Economic Freedom:"),
+        #         html.Pre(children=str(correlation_hdi_ef_fraser)),
+        #     ],
+        #     className="corr-container",
+        # ),
+        # # Div Heritage Dataframe vs HDI 2020
+        # html.Div(
+        #     children=[
+        #         html.H2("Heritage Dataframe vs HDI 2020:", className="title-graphs"),
+        #         html.Hr(className="linha-separadora"),
+        #         html.P("Correlation between Rankings:"),
+        #         html.Pre(children=str(correlation_rankings_heritage)),
+        #         html.P("Correlation between HDI 2020 and Economic Freedom:"),
+        #         html.Pre(children=str(correlation_hdi_ef_heritage)),
+        #     ],
+        #     className="corr-container",
+        # ),
+        # # Div Fraser Dataframe vs Heritage Dataframe
+        # html.Div(
+        #     children=[
+        #         html.H2(
+        #             "Fraser Dataframe vs Heritage Dataframe:", className="title-graphs"
+        #         ),
+        #         html.Hr(className="linha-separadora"),
+        #         html.P("Correlation between Rankings:"),
+        #         html.Pre(children=str(correlation_rankings_fraser_heritage)),
+        #         html.P(
+        #             "Correlation between Economic Freedom Summary Index and Overall Score:"
+        #         ),
+        #         html.Pre(children=str(correlation_index_fraser_heritage)),
+        #     ],
+        #     className="corr-container",
+        # ),
+        # Div 1 Fraser Dataframe vs HDI 2020
         html.Div(
             children=[
                 html.H2("Fraser Dataframe vs HDI 2020:", className="title-graphs"),
                 html.Hr(className="linha-separadora"),
                 html.P("Correlation between Rankings:"),
-                html.Pre(children=str(correlation_rankings_fraser)),
+                # Tabela 1
+                dash_table.DataTable(
+                    columns=[
+                        {"name": "", "id": "index"},
+                        {"name": "Ranking HDI 2020", "id": "Ranking HDI 2020"},
+                        {
+                            "name": "Ranking Economic Freedom",
+                            "id": "Ranking Economic Freedom",
+                        },
+                    ],
+                    data=[
+                        {
+                            "index": "Ranking HDI 2020",
+                            "Ranking HDI 2020": correlation_rankings_fraser.iloc[0, 0],
+                            "Ranking Economic Freedom": correlation_rankings_fraser.iloc[
+                                0, 1
+                            ],
+                        },
+                        {
+                            "index": "Ranking Economic Freedom",
+                            "Ranking HDI 2020": correlation_rankings_fraser.iloc[1, 0],
+                            "Ranking Economic Freedom": correlation_rankings_fraser.iloc[
+                                1, 1
+                            ],
+                        },
+                    ],
+                    style_table={
+                        "maxWidth": "80%",
+                        "margin": "auto",
+                        "overflowX": "auto",
+                    },
+                    style_cell={"textAlign": "center"},
+                ),
                 html.P("Correlation between HDI 2020 and Economic Freedom:"),
-                html.Pre(children=str(correlation_hdi_ef_fraser)),
+                # Tabela 2
+                dash_table.DataTable(
+                    columns=[
+                        {"name": "", "id": "index"},
+                        {"name": "hdi_2020", "id": "hdi_2020"},
+                        {
+                            "name": "Economic Freedom Summary Index",
+                            "id": "Economic Freedom Summary Index",
+                        },
+                    ],
+                    data=[
+                        {
+                            "index": "hdi_2020",
+                            "hdi_2020": correlation_hdi_ef_fraser.iloc[0, 0],
+                            "Economic Freedom Summary Index": correlation_hdi_ef_fraser.iloc[
+                                0, 1
+                            ],
+                        },
+                        {
+                            "index": "Economic Freedom Summary Index",
+                            "hdi_2020": correlation_hdi_ef_fraser.iloc[1, 0],
+                            "Economic Freedom Summary Index": correlation_hdi_ef_fraser.iloc[
+                                1, 1
+                            ],
+                        },
+                    ],
+                    style_table={
+                        "maxWidth": "80%",
+                        "margin": "auto",
+                        "overflowX": "auto",
+                    },
+                    style_cell={"textAlign": "center"},
+                ),
             ],
             className="corr-container",
         ),
-        # Div Heritage Dataframe vs HDI 2020
+        # Div 2 Heritage Dataframe vs HDI 2020
         html.Div(
             children=[
                 html.H2("Heritage Dataframe vs HDI 2020:", className="title-graphs"),
                 html.Hr(className="linha-separadora"),
                 html.P("Correlation between Rankings:"),
-                html.Pre(children=str(correlation_rankings_heritage)),
+                # Tabela 1
+                dash_table.DataTable(
+                    columns=[
+                        {"name": "", "id": "index"},
+                        {"name": "Ranking HDI 2020", "id": "Ranking HDI 2020"},
+                        {
+                            "name": "Ranking Economic Freedom",
+                            "id": "Ranking Economic Freedom",
+                        },
+                    ],
+                    data=[
+                        {
+                            "index": "Ranking HDI 2020",
+                            "Ranking HDI 2020": correlation_rankings_heritage.iloc[
+                                0, 0
+                            ],
+                            "Ranking Economic Freedom": correlation_rankings_heritage.iloc[
+                                0, 1
+                            ],
+                        },
+                        {
+                            "index": "Ranking Economic Freedom",
+                            "Ranking HDI 2020": correlation_rankings_heritage.iloc[
+                                1, 0
+                            ],
+                            "Ranking Economic Freedom": correlation_rankings_heritage.iloc[
+                                1, 1
+                            ],
+                        },
+                    ],
+                    style_table={
+                        "maxWidth": "80%",
+                        "margin": "auto",
+                        "overflowX": "auto",
+                    },
+                    style_cell={"textAlign": "center"},
+                ),
                 html.P("Correlation between HDI 2020 and Economic Freedom:"),
-                html.Pre(children=str(correlation_hdi_ef_heritage)),
+                # Tabela 2
+                dash_table.DataTable(
+                    columns=[
+                        {"name": "", "id": "index"},
+                        {"name": "hdi_2020", "id": "hdi_2020"},
+                        {
+                            "name": "Economic Freedom Summary Index",
+                            "id": "Economic Freedom Summary Index",
+                        },
+                    ],
+                    data=[
+                        {
+                            "index": "hdi_2020",
+                            "hdi_2020": correlation_hdi_ef_heritage.iloc[0, 0],
+                            "Economic Freedom Summary Index": correlation_hdi_ef_heritage.iloc[
+                                0, 1
+                            ],
+                        },
+                        {
+                            "index": "Economic Freedom Summary Index",
+                            "hdi_2020": correlation_hdi_ef_heritage.iloc[1, 0],
+                            "Economic Freedom Summary Index": correlation_hdi_ef_heritage.iloc[
+                                1, 1
+                            ],
+                        },
+                    ],
+                    style_table={
+                        "maxWidth": "80%",
+                        "margin": "auto",
+                        "overflowX": "auto",
+                    },
+                    style_cell={"textAlign": "center"},
+                ),
             ],
             className="corr-container",
         ),
-        # Div Fraser Dataframe vs Heritage Dataframe
+        # Div 3 Fraser Dataframe vs Heritage Dataframe
         html.Div(
             children=[
                 html.H2(
@@ -212,131 +392,85 @@ app.layout = html.Div(
                 ),
                 html.Hr(className="linha-separadora"),
                 html.P("Correlation between Rankings:"),
-                html.Pre(children=str(correlation_rankings_fraser_heritage)),
-                html.P(
-                    "Correlation between Economic Freedom Summary Index and Overall Score:"
+                # Tabela 1
+                dash_table.DataTable(
+                    columns=[
+                        {"name": "", "id": "index"},
+                        {
+                            "name": "Ranking Economic Freedom_x",
+                            "id": "Ranking Economic Freedom_x",
+                        },
+                        {
+                            "name": "Ranking Economic Freedom_y",
+                            "id": "Ranking Economic Freedom_y",
+                        },
+                    ],
+                    data=[
+                        {
+                            "index": "Ranking Economic Freedom_x",
+                            "Ranking Economic Freedom_x": correlation_rankings_fraser_heritage.iloc[
+                                0, 0
+                            ],
+                            "Ranking Economic Freedom_y": correlation_rankings_fraser_heritage.iloc[
+                                0, 1
+                            ],
+                        },
+                        {
+                            "index": "Ranking Economic Freedom_y",
+                            "Ranking Economic Freedom_x": correlation_rankings_fraser_heritage.iloc[
+                                1, 0
+                            ],
+                            "Ranking Economic Freedom_y": correlation_rankings_fraser_heritage.iloc[
+                                1, 1
+                            ],
+                        },
+                    ],
+                    style_table={
+                        "maxWidth": "80%",
+                        "margin": "auto",
+                        "overflowX": "auto",
+                    },
+                    style_cell={"textAlign": "center"},
                 ),
-                html.Pre(children=str(correlation_index_fraser_heritage)),
+                html.P(
+                    "Correlation between Economic Freedom Summary Index_x and Index_y:"
+                ),
+                # Tabela 2
+                dash_table.DataTable(
+                    columns=[
+                        {"name": "", "id": "index"},
+                        {
+                            "name": "Economic Freedom Summary Index_x",
+                            "id": "Economic Freedom Summary Index_x",
+                        },
+                        {"name": "Index_y", "id": "Index_y"},
+                    ],
+                    data=[
+                        {
+                            "index": "Economic Freedom Summary Index_x",
+                            "Economic Freedom Summary Index_x": correlation_index_fraser_heritage.iloc[
+                                0, 0
+                            ],
+                            "Index_y": correlation_index_fraser_heritage.iloc[0, 1],
+                        },
+                        {
+                            "index": "Index_y",
+                            "Economic Freedom Summary Index_x": correlation_index_fraser_heritage.iloc[
+                                1, 0
+                            ],
+                            "Index_y": correlation_index_fraser_heritage.iloc[1, 1],
+                        },
+                    ],
+                    style_table={
+                        "maxWidth": "80%",
+                        "margin": "auto",
+                        "overflowX": "auto",
+                    },
+                    style_cell={"textAlign": "center"},
+                ),
             ],
             className="corr-container",
         ),
-
-
-
-
- # Div 1
-    html.Div(
-        children=[
-            html.H2("Fraser Dataframe vs HDI 2020:", className="title-graphs"),
-            html.Hr(className="linha-separadora"),
-            
-            # Tabela 1
-            dash_table.DataTable(
-                columns=[
-                    {'name': '', 'id': 'index'},
-                    {'name': 'Ranking Economic Freedom_x', 'id': 'Ranking Economic Freedom_x'},
-                    {'name': 'Ranking Economic Freedom_y', 'id': 'Ranking Economic Freedom_y'},
-                ],
-                data=[
-                    {'index': 'Ranking Economic Freedom_x', 'Ranking Economic Freedom_x': correlation_rankings_fraser.iloc[0, 0], 'Ranking Economic Freedom_y': correlation_rankings_fraser.iloc[0, 1]},
-                    {'index': 'Ranking Economic Freedom_y', 'Ranking Economic Freedom_x': correlation_rankings_fraser.iloc[1, 0], 'Ranking Economic Freedom_y': correlation_rankings_fraser.iloc[1, 1]},
-                ],
-            ),
-            
-            # Tabela 2
-            dash_table.DataTable(
-                columns=[
-                    {'name': '', 'id': 'index'},
-                    {'name': 'Economic Freedom Summary Index', 'id': 'Economic Freedom Summary Index'},
-                    {'name': 'Overall Score', 'id': 'Overall Score'},
-                ],
-                data=[
-                    {'index': 'Economic Freedom Summary Index', 'Economic Freedom Summary Index': correlation_hdi_ef_fraser.iloc[0, 0], 'Overall Score': correlation_hdi_ef_fraser.iloc[0, 1]},
-                    {'index': 'Overall Score', 'Economic Freedom Summary Index': correlation_hdi_ef_fraser.iloc[1, 0], 'Overall Score': correlation_hdi_ef_fraser.iloc[1, 1]},
-                ],
-            ),
-        ],
-        className="corr-container",
-    ),
-
-    # Div 2
-    html.Div(
-        children=[
-            html.H2("Heritage Dataframe vs HDI 2020:", className="title-graphs"),
-            html.Hr(className="linha-separadora"),
-            
-            # Tabela 1
-            dash_table.DataTable(
-                columns=[
-                    {'name': '', 'id': 'index'},
-                    {'name': 'Ranking Economic Freedom_x', 'id': 'Ranking Economic Freedom_x'},
-                    {'name': 'Ranking Economic Freedom_y', 'id': 'Ranking Economic Freedom_y'},
-                ],
-                data=[
-                    {'index': 'Ranking Economic Freedom_x', 'Ranking Economic Freedom_x': correlation_rankings_heritage.iloc[0, 0], 'Ranking Economic Freedom_y': correlation_rankings_heritage.iloc[0, 1]},
-                    {'index': 'Ranking Economic Freedom_y', 'Ranking Economic Freedom_x': correlation_rankings_heritage.iloc[1, 0], 'Ranking Economic Freedom_y': correlation_rankings_heritage.iloc[1, 1]},
-                ],
-            ),
-            
-            # Tabela 2
-            dash_table.DataTable(
-                columns=[
-                    {'name': '', 'id': 'index'},
-                    {'name': 'Economic Freedom Summary Index', 'id': 'Economic Freedom Summary Index'},
-                    {'name': 'Overall Score', 'id': 'Overall Score'},
-                ],
-                data=[
-                    {'index': 'Economic Freedom Summary Index', 'Economic Freedom Summary Index': correlation_hdi_ef_heritage.iloc[0, 0], 'Overall Score': correlation_hdi_ef_heritage.iloc[0, 1]},
-                    {'index': 'Overall Score', 'Economic Freedom Summary Index': correlation_hdi_ef_heritage.iloc[1, 0], 'Overall Score': correlation_hdi_ef_heritage.iloc[1, 1]},
-                ],
-            ),
-        ],
-        className="corr-container",
-    ),
-
-    # Div 3
-    html.Div(
-        children=[
-            html.H2("Fraser Dataframe vs Heritage Dataframe:", className="title-graphs"),
-            html.Hr(className="linha-separadora"),
-            
-            # Tabela 1
-            dash_table.DataTable(
-                columns=[
-                    {'name': '', 'id': 'index'},
-                    {'name': 'Ranking Economic Freedom_x', 'id': 'Ranking Economic Freedom_x'},
-                    {'name': 'Ranking Economic Freedom_y', 'id': 'Ranking Economic Freedom_y'},
-                ],
-                data=[
-                    {'index': 'Ranking Economic Freedom_x', 'Ranking Economic Freedom_x': correlation_rankings_fraser_heritage.iloc[0, 0], 'Ranking Economic Freedom_y': correlation_rankings_fraser_heritage.iloc[0, 1]},
-                    {'index': 'Ranking Economic Freedom_y', 'Ranking Economic Freedom_x': correlation_rankings_fraser_heritage.iloc[1, 0], 'Ranking Economic Freedom_y': correlation_rankings_fraser_heritage.iloc[1, 1]},
-                ],
-            ),
-            
-            # Tabela 2
-            dash_table.DataTable(
-                columns=[
-                    {'name': '', 'id': 'index'},
-                    {'name': 'Economic Freedom Summary Index', 'id': 'Economic Freedom Summary Index'},
-                    {'name': 'Overall Score', 'id': 'Overall Score'},
-                ],
-                data=[
-                    {'index': 'Economic Freedom Summary Index', 'Economic Freedom Summary Index': correlation_index_fraser_heritage.iloc[0, 0], 'Overall Score': correlation_index_fraser_heritage.iloc[0, 1]},
-                    {'index': 'Overall Score', 'Economic Freedom Summary Index': correlation_index_fraser_heritage.iloc[1, 0], 'Overall Score': correlation_index_fraser_heritage.iloc[1, 1]},
-                ],
-            ),
-        ],
-        className="corr-container",
-    ),
-
-
-
-
-
-
-
-
-
         # Div para o Box Plot
         html.Div(
             [

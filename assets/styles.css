@@ -12,10 +12,10 @@ body {
   margin-top: 20px;
 }
 
-#correlation-graph {
+/* #correlation-graph {
   width: 90%;
   margin: auto;
-}
+} */
 
 #ranking-title {
   text-align: center;
@@ -50,8 +50,13 @@ body {
 }
 
 .graph-show {
-  width: 90%;
+  /* width: 80%; */
   margin: auto;
+  max-width: 70%;
+}
+
+.table-show {
+
 }
 
 .titulo-geral {
@@ -70,9 +75,21 @@ body {
   text-justify: auto;
 }
 
+.titulo-descricao-container strong {
+  color: #007BFF; /* Cor para destaque, ajuste conforme necessário */
+  font-weight: bold;
+}
+
+.titulo-descricao-container p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+}
+
 .linha-separadora {
   border: 1px solid #ccc;
-  margin: 20px;
+  margin: 20px 100px;
 }
 
 .corr-container {
@@ -83,4 +100,14 @@ body {
 
 .title-graphs, .corr-container p, .corr-container pre {
   text-align: center;
+}
+
+.data-table {
+  overflow-x: auto;
+  width: 100%; 
+  margin-bottom: 20px; 
+}
+
+.regression-container {
+  margin-bottom: 50px;
 }
