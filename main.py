@@ -528,7 +528,7 @@ app.layout = html.Div(
                 dcc.Dropdown(
                     id="iso-dropdown",
                     options=iso_options,
-                    value="VEN",  # Valor padrão inicial
+                    value="VEN",
                     multi=False,
                 ),
                 # Botão de atualização
@@ -539,7 +539,7 @@ app.layout = html.Div(
             ],
             className="ranking-container",
         ),
-        # Nova Div para o gráfico de regressão linear
+        # Div para o gráfico de regressão linear
         html.Div(
             [
                 html.H2(id="regression-title", children="Regressão Linear"),
@@ -555,7 +555,6 @@ app.layout = html.Div(
 )
 
 
-# Adicione a callback para atualizar dinamicamente o gráfico com base no valor do dropdown
 @app.callback(
     [Output("ranking-graph", "figure"), Output("ranking-title", "children")],
     [Input("update-button", "n_clicks")],
@@ -563,10 +562,8 @@ app.layout = html.Div(
 )
 def update_graph(n_clicks, iso_value):
     if iso_value is None or iso_value == "":
-        # Pode retornar valores padrão ou simplesmente não fazer nada
         return dash.no_update, dash.no_update
 
-    # Adicione o código para calcular ef_ranks e hdi_ranks
     filter = df["iso3"] == iso_value
 
     hdi_ranks = []
@@ -715,11 +712,9 @@ def update_regression_graph(n_clicks, iso_value):
     ef_ranks = df_filter[[f"ef_{year}_rank" for year in range(1996, 2022)]].values.flatten()
     hdi_ranks = df_filter[[f"hdi_{year}_rank" for year in range(1996, 2022)]].values.flatten()
 
-    # Verificar se há valores NaN nas variáveis
     if np.isnan(ef_ranks).any() or np.isnan(hdi_ranks).any():
         return dash.no_update, "Dados contêm valores nulos (NaN). Não é possível realizar a regressão."
 
-    # Continuar com o restante do código para realizar a regressão linear
     reg_ef = LinearRegression().fit(
         np.array([[year] for year in range(1996, 2022)]), ef_ranks
     )
