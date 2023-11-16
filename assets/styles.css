@@ -123,8 +123,7 @@ body {
   .title-graphs {
     width: 100%;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
   }
 
   .corr-container {
@@ -155,7 +154,7 @@ body {
   .js-plotly-plot {
     max-width: 100% !important;
     margin: auto !important;
-    width: 90% !important;
+    width: 100% !important;
     height: 350px !important; 
   }
 
