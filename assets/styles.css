@@ -112,6 +112,7 @@ body {
   margin-bottom: 50px;
 }
 
+
 @media only screen and (max-width: 600px) {
   .graph-show {
     max-width: 100%;

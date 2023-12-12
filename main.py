@@ -173,7 +173,7 @@ descricao = [
     html.Strong("Heritage Foundation"),
     " e ",
     html.Strong("United Nations Development Programme (UNDP)"),
-    "."
+    ".",
 ]
 
 # layout
@@ -233,6 +233,9 @@ app.layout = html.Div(
             children=[
                 html.H2("Fraser Dataframe vs HDI 2020:", className="title-graphs"),
                 html.Hr(className="linha-separadora"),
+                html.P(
+                    "A tabela abaixo mostra a correlação entre o Ranking do IDH 2020 Fraser Dataframe e o Ranking de Liberdade Econômica."
+                ),
                 html.P("Correlation between Rankings:"),
                 # Tabela 1
                 dash_table.DataTable(
@@ -266,6 +269,9 @@ app.layout = html.Div(
                         "overflowX": "auto",
                     },
                     style_cell={"textAlign": "center"},
+                ),
+                html.P(
+                    "A tabela abaixo mostra a correlação entre o IDH 2020 Fraser Dataframe e a Liberdade Econômica."
                 ),
                 html.P("Correlation between HDI 2020 and Economic Freedom:"),
                 # Tabela 2
@@ -309,6 +315,9 @@ app.layout = html.Div(
             children=[
                 html.H2("Heritage Dataframe vs HDI 2020:", className="title-graphs"),
                 html.Hr(className="linha-separadora"),
+                html.P(
+                    "A tabela abaixo mostra a correlação entre o Ranking do IDH 2020 Heritage Dataframe e o Ranking de Liberdade Econômica."
+                ),
                 html.P("Correlation between Rankings:"),
                 # Tabela 1
                 dash_table.DataTable(
@@ -346,6 +355,9 @@ app.layout = html.Div(
                         "overflowX": "auto",
                     },
                     style_cell={"textAlign": "center"},
+                ),
+                html.P(
+                    "A tabela abaixo mostra a correlação entre o IDH 2020 Heritage Dataframe e a Liberdade Econômica."
                 ),
                 html.P("Correlation between HDI 2020 and Economic Freedom:"),
                 # Tabela 2
@@ -391,23 +403,26 @@ app.layout = html.Div(
                     "Fraser Dataframe vs Heritage Dataframe:", className="title-graphs"
                 ),
                 html.Hr(className="linha-separadora"),
+                html.P(
+                    "A tabela abaixo mostra a correlação entre o Ranking do EFI 2020 Fraser Dataframe e o Ranking do EFI 2020 Heritage Dataframe."
+                ),
                 html.P("Correlation between Rankings:"),
                 # Tabela 1
                 dash_table.DataTable(
                     columns=[
                         {"name": "", "id": "index"},
                         {
-                            "name": "Ranking Economic Freedom_x",
+                            "name": "Ranking Economic Freedom (Fraser)",
                             "id": "Ranking Economic Freedom_x",
                         },
                         {
-                            "name": "Ranking Economic Freedom_y",
+                            "name": "Ranking Economic Freedom (Heritage)",
                             "id": "Ranking Economic Freedom_y",
                         },
                     ],
                     data=[
                         {
-                            "index": "Ranking Economic Freedom_x",
+                            "index": "Ranking Economic Freedom (Fraser)",
                             "Ranking Economic Freedom_x": correlation_rankings_fraser_heritage.iloc[
                                 0, 0
                             ],
@@ -416,7 +431,7 @@ app.layout = html.Div(
                             ],
                         },
                         {
-                            "index": "Ranking Economic Freedom_y",
+                            "index": "Ranking Economic Freedom (Heritage)",
                             "Ranking Economic Freedom_x": correlation_rankings_fraser_heritage.iloc[
                                 1, 0
                             ],
@@ -433,6 +448,9 @@ app.layout = html.Div(
                     style_cell={"textAlign": "center"},
                 ),
                 html.P(
+                    "A tabela abaixo mostra a correlação entre o EFI 2020 Fraser Dataframe e o EFI 2020 Heritage Dataframe."
+                ),
+                html.P(
                     "Correlation between Economic Freedom Summary Index_x and Index_y:"
                 ),
                 # Tabela 2
@@ -440,21 +458,21 @@ app.layout = html.Div(
                     columns=[
                         {"name": "", "id": "index"},
                         {
-                            "name": "Economic Freedom Summary Index_x",
+                            "name": "EFI index (Fraser)",
                             "id": "Economic Freedom Summary Index_x",
                         },
-                        {"name": "Index_y", "id": "Index_y"},
+                        {"name": "EFI index (Heritage)", "id": "Index_y"},
                     ],
                     data=[
                         {
-                            "index": "Economic Freedom Summary Index_x",
+                            "index": "EFI index (Fraser)",
                             "Economic Freedom Summary Index_x": correlation_index_fraser_heritage.iloc[
                                 0, 0
                             ],
                             "Index_y": correlation_index_fraser_heritage.iloc[0, 1],
                         },
                         {
-                            "index": "Index_y",
+                            "index": "EFI index (Heritage)",
                             "Economic Freedom Summary Index_x": correlation_index_fraser_heritage.iloc[
                                 1, 0
                             ],
@@ -476,6 +494,10 @@ app.layout = html.Div(
             [
                 html.H2(children="Box Plot", className="title-graphs"),
                 html.Hr(className="linha-separadora"),
+                html.P(
+                    "Esse gráfico mostra a distribuição dos dados do IDH em 2021 do G20, Top 20 IDH e Mundo todo.",
+                    style={"textAlign": "center"},
+                ),
                 dcc.Graph(
                     id="box-plot", className="graph-show", figure=criar_box_plot()
                 ),
@@ -706,14 +728,26 @@ def update_regression_graph(n_clicks, iso_value):
         return dash.no_update, "Dados não disponíveis para o país selecionado."
 
     # Verificar se há dados ausentes
-    if df_filter[[f"ef_{year}_rank" for year in range(1996, 2022)]].isnull().any().any():
+    if (
+        df_filter[[f"ef_{year}_rank" for year in range(1996, 2022)]]
+        .isnull()
+        .any()
+        .any()
+    ):
         return dash.no_update, "Dados ausentes para realizar a regressão."
 
-    ef_ranks = df_filter[[f"ef_{year}_rank" for year in range(1996, 2022)]].values.flatten()
-    hdi_ranks = df_filter[[f"hdi_{year}_rank" for year in range(1996, 2022)]].values.flatten()
+    ef_ranks = df_filter[
+        [f"ef_{year}_rank" for year in range(1996, 2022)]
+    ].values.flatten()
+    hdi_ranks = df_filter[
+        [f"hdi_{year}_rank" for year in range(1996, 2022)]
+    ].values.flatten()
 
     if np.isnan(ef_ranks).any() or np.isnan(hdi_ranks).any():
-        return dash.no_update, "Dados contêm valores nulos (NaN). Não é possível realizar a regressão."
+        return (
+            dash.no_update,
+            "Dados contêm valores nulos (NaN). Não é possível realizar a regressão.",
+        )
 
     reg_ef = LinearRegression().fit(
         np.array([[year] for year in range(1996, 2022)]), ef_ranks
@@ -722,7 +756,6 @@ def update_regression_graph(n_clicks, iso_value):
     reg_hdi = LinearRegression().fit(
         np.array([[year] for year in range(1996, 2022)]), hdi_ranks
     )
-
 
     years_pred = np.array([[year] for year in range(2022, 2030)])
     ef_rank_pred = reg_ef.predict(years_pred)
